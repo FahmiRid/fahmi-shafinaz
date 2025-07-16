@@ -122,7 +122,7 @@ const Countdown = ({ targetDate, onComplete }) => {
         
         <div className="container">
           <div className="wedding-title">
-            Countdown to Our Special Day
+            Raikan Cinta 💍
           </div>
           
           <div
