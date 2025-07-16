@@ -1,9 +1,6 @@
 import React from "react";
-import { Github, Database, MessageCircle } from "lucide-react";
 import Clock from "../components/img/clock.png";
-import GalleryIcon from "../components/img/photos.png";
 import LoveLetterIcon from "../components/img/loveletter.png";
-import LocationIcon from "../components/img/location.png";
 import Home from "../components/img/home.png";
 import Itinerary from '../components/img/itinerary.png'
 import Contact from '../components/img/contacts.png'

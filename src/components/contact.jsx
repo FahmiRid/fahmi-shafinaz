@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/contact.css";
 import AnimatedDock from "./dock";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Whatsapp from "../components/img/whatsapp.png";
 import Google from "../components/img/google.png";
 import Waze from "../components/img/waze.png";

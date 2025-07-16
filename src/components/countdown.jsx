@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "../styles/countdown.css";
-import SideNavigation from "./sideNavigation";
 import AnimatedDock from "./dock";
 
 // Constants
@@ -48,7 +47,6 @@ const Countdown = ({ targetDate, onComplete }) => {
     headline: WEDDING_CONFIG.INITIAL_HEADLINE
   });
 
-  const [isNavigationOpen, setIsNavigationOpen] = useState(false);
   const [targetTimestamp] = useState(
     targetDate ? new Date(targetDate).getTime() : calculateWeddingDate()
   );
@@ -68,11 +66,6 @@ const Countdown = ({ targetDate, onComplete }) => {
       minutes: Math.floor((distance % TIME_CONSTANTS.HOUR) / TIME_CONSTANTS.MINUTE),
       seconds: Math.floor((distance % TIME_CONSTANTS.MINUTE) / TIME_CONSTANTS.SECOND),
     };
-  }, []);
-
-  // Toggle navigation handler
-  const toggleNavigation = useCallback(() => {
-    setIsNavigationOpen(prevState => !prevState);
   }, []);
 
   // Main countdown effect

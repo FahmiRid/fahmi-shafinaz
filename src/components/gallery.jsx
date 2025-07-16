@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import "../styles/gallery.css";
 import SideNavigation from "./sideNavigation";
@@ -13,8 +14,6 @@ import Image9 from '../components/img/DSC02079.JPG'
 import Image10 from '../components/img/DSC03246.JPG'
 import Image11 from '../components/img/DSC03284.JPG'
 import Image12 from '../components/img/DSC03429.JPG'
-import Image13 from '../components/img/image1.JPG'
-import Image14 from '../components/img/photo_2025-01-16_01-36-34.jpg'
 export default function Gallery() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleNavigation = () => {

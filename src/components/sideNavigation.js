@@ -1,8 +1,7 @@
 import React from "react";
 import "../styles/side.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const SideNavigation = ({ isOpen, toggleNavigation }) => {
-  const navigate = useNavigate();
 
   return (
     <nav id="side-navigation" className={isOpen ? "open" : "closed"}>
