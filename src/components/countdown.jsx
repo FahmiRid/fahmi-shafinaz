@@ -11,7 +11,7 @@ const TIME_CONSTANTS = {
 };
 
 const WEDDING_CONFIG = {
-  WEDDING_DATE: "08/24/",
+  WEDDING_DATE: "08/31/",
   HASHTAG: "#keShayanganFahmi ❤💍",
   INITIAL_HEADLINE: "Countdown Fahmi & Shafinaz",
   COMPLETION_HEADLINE: "It's Our Wedding Day!",
