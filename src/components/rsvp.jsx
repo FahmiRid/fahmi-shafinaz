@@ -3,6 +3,7 @@ import "../styles/rsvp.css";
 import AnimatedDock from "./dock";
 import Swal from "sweetalert2";
 import supabase from "./supabase";
+
 const RSVPForm = () => {
   const [names, setNames] = useState("");
   const [description, setDescription] = useState("");
@@ -11,13 +12,25 @@ const RSVPForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const { error } = await supabase.from("attendance").insert([
-      {
-        name: names,
-        attend: attendance,
-        description: description
-      },
-    ]);
+
+     // Validation for name
+     if (!names.trim()) {
+      Swal.fire({
+        title: "Oppss!",
+        text: "Sila masukan nama.",
+        icon: "error",
+      });
+      return; // Stop the submission if name is empty
+    }
+
+    // Prepare the data to be inserted
+    const dataToInsert = {
+      name: names,
+      attend: attendance,
+      description: description || null // Set description to null if empty
+    };
+
+    const { error } = await supabase.from("attendance").insert([dataToInsert]);
     if (error) {
       console.error(error);
     } else {
@@ -28,6 +41,11 @@ const RSVPForm = () => {
       });
       fetchAttendanceData();
     }
+
+    // If wishes are provided, fetch the updated wishes
+    if (description) {
+      fetchAttendanceData();
+    }
   };
 
   const fetchAttendanceData = async () => {
@@ -35,7 +53,8 @@ const RSVPForm = () => {
     if (error) {
       console.error(error);
     } else {
-      setWishes(data);
+      // Only set wishes that have a description
+      setWishes(data.filter(wish => wish.description));
     }
   };
 
