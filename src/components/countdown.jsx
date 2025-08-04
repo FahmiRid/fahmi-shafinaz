@@ -155,7 +155,6 @@ const Countdown = ({ targetDate, onComplete }) => {
           >
             <span>🥳</span>
             <span>🎉</span>
-            <span>🎂</span>
           </div>
         </div>
       </div>
