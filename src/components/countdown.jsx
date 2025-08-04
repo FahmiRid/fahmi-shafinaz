@@ -24,16 +24,19 @@ const Countdown = ({ targetDate, onComplete }) => {
     const today = new Date();
     const currentYear = today.getFullYear();
     const nextYear = currentYear + 1;
-    
-    const todayString = today.toLocaleDateString('en-US');
-    let weddingDate = WEDDING_CONFIG.WEDDING_DATE + currentYear;
-    
-    if (todayString > new Date(weddingDate).toLocaleDateString('en-US')) {
-      weddingDate = WEDDING_CONFIG.WEDDING_DATE + nextYear;
+  
+    // Create a date object for the wedding date
+    const weddingDateThisYear = new Date(`${WEDDING_CONFIG.WEDDING_DATE}/${currentYear}`);
+    const weddingDateNextYear = new Date(`${WEDDING_CONFIG.WEDDING_DATE}/${nextYear}`);
+  
+    // Check if the wedding date this year has passed
+    if (today > weddingDateThisYear) {
+      return weddingDateNextYear.getTime();
     }
-    
-    return new Date(weddingDate).getTime();
+  
+    return weddingDateThisYear.getTime();
   }, []);
+  
 
   // State
   const [countdownState, setCountdownState] = useState({
