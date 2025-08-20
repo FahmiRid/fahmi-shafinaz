@@ -26,8 +26,8 @@ const Countdown = ({ targetDate, onComplete }) => {
     const nextYear = currentYear + 1;
   
     // Create a date object for the wedding date
-    const weddingDateThisYear = new Date(`${WEDDING_CONFIG.WEDDING_DATE}/${currentYear}`);
-    const weddingDateNextYear = new Date(`${WEDDING_CONFIG.WEDDING_DATE}/${nextYear}`);
+    const weddingDateThisYear = new Date(Date.UTC(currentYear, 7, 31)); // August is month 7
+    const weddingDateNextYear = new Date(Date.UTC(nextYear, 7, 31));
   
     // Check if the wedding date this year has passed
     if (today > weddingDateThisYear) {
